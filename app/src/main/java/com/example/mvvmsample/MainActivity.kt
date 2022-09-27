@@ -58,7 +58,8 @@ fun ToDoApp() {
         // 詳細画面
         composable(
             "detail/{todoId}",
-            // arguments = listOf(navArgument("todoId") { type = NavType.IntType}で低数を数値にパース
+            // arguments = listOf(navArgument("todoId") { type = NavType.IntType}で引数を数値にパース
+            // 初期値は文字列
             arguments = listOf(navArgument("todoId") { type = NavType.IntType })
         ) { backStackEntry ->
             // backStackEntry.arguments?.getString("todoId"?.toInt()でルーチの引数を取得
