@@ -1,9 +1,7 @@
-package com.example.mvvmsample
+package com.example.mvvmsample.model.todo
 
 import android.content.Context
 import androidx.room.Room
-import com.example.mvvmsample.model.todo.ToDoDAO
-import com.example.mvvmsample.model.todo.ToDoDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,8 +16,11 @@ object MainModule {
     @Singleton
     fun provideToDoDatabase(@ApplicationContext context: Context): ToDoDatabase {
         return Room.databaseBuilder(
+            // アプリコンテキスト
             context,
+            // データベースクラス
             ToDoDatabase::class.java,
+            // データベースを作るファイル名
             "todo.db"
         ).build()
     }
