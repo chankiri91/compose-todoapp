@@ -54,8 +54,11 @@ fun ToDoApp() {
     // navControllerの取得
     val navController = rememberNavController()
 
+    // 画面遷移を担当してもらうNavHost
+    // 引数にはNavControllerとstartDestination
     NavHost(navController = navController, startDestination = "main") {
         composable("main") {
+            // hiltViewModel()を使ってviewModelインスタンスを各スクリーンに渡す
             val viewModel = hiltViewModel<MainViewModel>()
             MainScreen(navController = navController, viewModel = viewModel)
         }
@@ -67,12 +70,12 @@ fun ToDoApp() {
         // 詳細画面
         composable(
             "detail/{todoId}",
-            // arguments = listOf(navArgument("todoId") { type = NavType.IntType}で引数を数値にパース
-            // 初期値は文字列
+            // NavHostのルートの引数は、デフォルトで文字列としてパースされるため、
+            //　数値のみを想定してる場合、次のようにargumentsを指定する
             arguments = listOf(navArgument("todoId") { type = NavType.IntType })
         ) { backStackEntry ->
             val viewModel = hiltViewModel<ToDoDetailViewModel>()
-            // backStackEntry.arguments?.getString("todoId"?.toInt()でルーチの引数を取得
+            // ルートの引数(todoId)はbackStackEntry.arguments?.getString("todoId")で取得できる
             val todoId = backStackEntry.arguments?.getString("todoId")?.toInt() ?: 0
             ToDoDetailScreen(navController = navController, viewModel = viewModel, todoId = todoId)
         }

@@ -7,14 +7,14 @@ import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
-// Data Access Object
+// Data Access Object, interfaceで定義
 @Dao
 interface ToDoDAO {
     // 取得
     // 作成日時が指定したもの未満で、上位n件をとってくる
     // :で始まるパラメータは、メソッドの引数で渡された値に置き換えられて実行される。
-    // 戻り地の方をKotlinコルーチンのFlow<T>にすることで、データベースの監視機能がつく
     @Query("select * from ToDo where created < :startCreated order by created desc limit :limit")
+    // 戻り値の型をKotlinコルーチンのFlow<T>にすることで、データベースの監視機能がつく
     fun getWithCreated(startCreated: Long, limit: Int): Flow<List<ToDo>>
 
     // 追加

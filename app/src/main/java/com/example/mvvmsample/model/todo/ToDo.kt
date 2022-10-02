@@ -3,7 +3,7 @@ package com.example.mvvmsample.model.todo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-// @Entityおつけると、Roomは対応するテーブルを自動で作ってあげる
+// @Entityをつけると、Roomは対応するテーブルを自動で作ってあげる
 @Entity
 data class ToDo(
     // @PrimaryKeyをつけるとその列が主キーになる
