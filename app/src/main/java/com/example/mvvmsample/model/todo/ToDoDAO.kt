@@ -17,6 +17,9 @@ interface ToDoDAO {
     // 戻り値の型をKotlinコルーチンのFlow<T>にすることで、データベースの監視機能がつく
     fun getWithCreated(startCreated: Long, limit: Int): Flow<List<ToDo>>
 
+    @Query("select * from ToDo order by created desc")
+    fun getAll(): Flow<List<ToDo>>
+
     // 追加
     @Insert
     suspend fun create(todo: ToDo)

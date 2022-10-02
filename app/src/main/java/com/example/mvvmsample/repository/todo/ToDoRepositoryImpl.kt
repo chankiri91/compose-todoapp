@@ -2,6 +2,7 @@ package com.example.mvvmsample.repository.todo
 
 import com.example.mvvmsample.model.todo.ToDo
 import com.example.mvvmsample.model.todo.ToDoDAO
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 
@@ -17,5 +18,9 @@ class ToDoRepositoryImpl @Inject constructor(
         )
         dao.create(todo)
         return todo
+    }
+
+    override fun getAll(): Flow<List<ToDo>> {
+        return dao.getAll()
     }
 }
