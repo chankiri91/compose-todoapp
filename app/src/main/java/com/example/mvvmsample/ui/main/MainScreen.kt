@@ -1,6 +1,7 @@
 package com.example.mvvmsample.ui.main
 
 import android.text.format.DateFormat
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -33,7 +34,10 @@ fun MainScreen(
         floatingActionButton = { MainFAB(navController) }
     ) {
         ToDoList(todoList) { todo ->
-            println(it)
+            Log.v("detail", "detail")
+            // IDをパスパラメータとしてセット
+            navController.navigate("detail/${todo._id}")
+            Log.v("detail2", "detail2")
         }
     }
 }

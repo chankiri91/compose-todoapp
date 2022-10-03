@@ -76,8 +76,13 @@ fun ToDoApp() {
         ) { backStackEntry ->
             val viewModel = hiltViewModel<ToDoDetailViewModel>()
             // ルートの引数(todoId)はbackStackEntry.arguments?.getString("todoId")で取得できる
-            val todoId = backStackEntry.arguments?.getString("todoId")?.toInt() ?: 0
-            ToDoDetailScreen(navController = navController, viewModel = viewModel, todoId = todoId)
+            val todoId = backStackEntry.arguments?.getInt("todoId") ?: 0
+            // viewModelに渡す
+            viewModel.setId(todoId)
+            ToDoDetailScreen(
+                navController = navController,
+                viewModel = viewModel,
+            )
         }
         // 編集画面
         composable(
@@ -85,7 +90,7 @@ fun ToDoApp() {
             arguments = listOf(navArgument("todoId") { type = NavType.IntType })
         ) { backStackEntry ->
             val viewModel = hiltViewModel<EditToDoViewModel>()
-            val todoId = backStackEntry.arguments?.getString("todoId")?.toInt() ?: 0
+            val todoId = backStackEntry.arguments?.getInt("todoId") ?: 0
             EditToDoScreen(navController = navController, viewModel = viewModel, todoId = todoId)
         }
     }
