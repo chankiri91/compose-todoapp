@@ -8,4 +8,5 @@ interface ToDoRepository {
     fun getById(todoId: Int): Flow<ToDo>
     suspend fun update(todo: ToDo, title: String, detail: String)
     suspend fun create(title: String, detail: String) : ToDo
+    suspend fun delete(todo: ToDo)
 }
