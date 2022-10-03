@@ -53,7 +53,7 @@ fun DetailTopBar(
             }
         },
         actions = {
-            if (todo._id == emptyToDoId) {
+            if (todo._id != emptyToDoId) {
                 IconButton(onClick = toEdit) {
                     Icon(Icons.Filled.Edit, "Edit")
                 }
