@@ -91,7 +91,9 @@ fun ToDoApp() {
         ) { backStackEntry ->
             val viewModel = hiltViewModel<EditToDoViewModel>()
             val todoId = backStackEntry.arguments?.getInt("todoId") ?: 0
-            EditToDoScreen(navController = navController, viewModel = viewModel, todoId = todoId)
+            // viewModelに渡す
+            viewModel.setId(todoId)
+            EditToDoScreen(navController = navController, viewModel = viewModel)
         }
     }
 }
