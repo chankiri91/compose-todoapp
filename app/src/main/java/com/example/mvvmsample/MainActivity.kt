@@ -97,3 +97,13 @@ fun ToDoApp() {
         }
     }
 }
+
+@Preview
+@Composable
+fun PreviewToDoApp() {
+    MVVMSampleTheme() {
+        Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+            ToDoApp()
+        }
+    }
+}

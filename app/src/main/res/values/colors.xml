@@ -8,4 +8,16 @@
     <color name="black">#FF000000</color>
     <color name="pale_green">#E8F5E9</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="gray50">#F8F9FA</color>
+    <color name="green50">#E6F4EA</color>
+    <color name="green100">#CEEAD6</color>
+    <color name="grey700">#5F6368</color>
+    <color name="grey900">#202124</color>
+
+    <color name="grey100">#F1F3F4</color>
+    <color name="cyan700">#129EAF</color>
+    <color name="cyan900">#007B83</color>
+
+
 </resources>

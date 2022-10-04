@@ -42,7 +42,6 @@ fun ToDoDetailScreen(
 
     Scaffold(
         topBar = {
-
             DetailTopBar(navController, todo.value, {
                 navController.navigate("edit/${todo.value._id}")
             }) { // deleteClickedの部分
@@ -124,7 +123,7 @@ fun DetailBody(
     Column {
         Text(
             text = todo.title,
-            style = MaterialTheme.typography.h3,
+            style = MaterialTheme.typography.h1,
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp)
         )
         Text(
