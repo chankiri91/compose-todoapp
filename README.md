@@ -15,5 +15,8 @@
   
 - Dagger
 - Hilt
-   
-   
+  
+# やりたいこと
+- CI/CD
+- Retrofit2
+- テスト
