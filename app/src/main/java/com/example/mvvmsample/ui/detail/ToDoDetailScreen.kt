@@ -9,9 +9,12 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.mvvmsample.model.todo.ToDo
+import com.example.mvvmsample.ui.theme.MVVMSampleTheme
 
 @Composable
 fun ToDoDetailScreen(
@@ -76,7 +79,8 @@ fun DetailTopBar(
             if (todo._id == emptyToDoId) {
                 Text(text = "loading")
             } else {
-                Text(text = todo.title)
+                Text(text = todo.title,
+                style = MaterialTheme.typography.h1)
             }
         },
         actions = {
@@ -123,7 +127,8 @@ fun DetailBody(
     Column {
         Text(
             text = todo.title,
-            style = MaterialTheme.typography.h1,
+            style = MaterialTheme.typography.h2,
+            fontSize = 40.sp,
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp)
         )
         Text(
@@ -157,5 +162,16 @@ fun DetailBody(
                 }
             }
         )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewDetailBody() {
+    MVVMSampleTheme() {
+        Surface() {
+            val todo: ToDo = ToDo(1, "title", "detail", 111, 222)
+            DetailBody(todo = todo, showDialog = mutableStateOf(false)) {}
+        }
     }
 }
