@@ -1,6 +1,6 @@
 # mvvm-sample
 
-## This is Todo App with Jetpack compose
+## This is Todo App is created using Jetpack Compose
 
 
 
